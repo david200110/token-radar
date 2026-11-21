@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="mast">
+  <div class="mast-in">
+    <div class="brand">
+      <span class="sweep" aria-hidden="true"><i></i></span>
+      <span class="brand-t">TOKEN RADAR</span>
+      <span class="brand-s">pre-token protocol board</span>
+    </div>
+    <div class="mast-meta" id="mast-meta"></div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <h1>Which protocol&rsquo;s token would be worth the most?</h1>
+    <p class="lede">Every protocol below records no token yet. The radar scores each one from the
+    snapshot&rsquo;s own figures &mdash; its TVL, its seven-day growth, how long it has run
+    with no token, and how many chains it lives on &mdash; and ranks them by the implied
+    value that comes out. Select any row for its model breakdown and its seven-step
+    farm plan.</p>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="toolbar" aria-label="Board filters">
+    <label class="f grow">Search
+      <input id="q" type="search" placeholder="Name, slug, category or chain" autocomplete="off">
+    </label>
+    <label class="f">Category <select id="category"></select></label>
+    <label class="f">Chain <select id="chain"></select></label>
+    <label class="f">Min TVL
+      <select id="tvl">
+        <option value="0">Any TVL</option>
+        <option value="50000000">$50M and up</option>
+        <option value="100000000">$100M and up</option>
+        <option value="500000000">$500M and up</option>
+        <option value="1000000000">$1B and up</option>
+      </select>
+    </label>
+    <label class="f">Sort
+      <select id="sort">
+        <option value="implied">Implied value, high first</option>
+        <option value="tvl">TVL, high first</option>
+        <option value="growth">7-day growth, high first</option>
+        <option value="age">Age, oldest first</option>
+        <option value="name">Name, A to Z</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="watch"> Watchlist only</label>
+    <div class="tabs" role="tablist" aria-label="Token status">
+      <button type="button" id="tab-pre" role="tab" aria-selected="true">Pre-token board</button>
+      <button type="button" id="tab-live" role="tab" aria-selected="false">Live tokens</button>
+    </div>
+    <span class="count" id="count"></span>
+  </section>
+
+  <section class="detail" id="detail" hidden></section>
+  <section class="panel" id="panel" aria-live="polite"></section>
+
+  <section class="model" id="model"></section>
+
+  <footer class="foot">
+    <p>Snapshot: DefiLlama&rsquo;s protocol index, fetched 2026-11-14. &ldquo;No token&rdquo; means
+    the snapshot records no token for the protocol &mdash; no market cap, no CoinGecko id,
+    no symbol &mdash; not proof that none exists. Implied value is this entry&rsquo;s own model,
+    an estimate from the snapshot&rsquo;s figures; it is not a price, not a prediction that a
+    token will launch, and not financial advice. Farm plans describe on-chain actions;
+    every one of them costs gas and carries the risk of the protocol itself.</p>
+  </footer>
+</main>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
